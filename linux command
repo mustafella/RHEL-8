@@ -1,0 +1,12 @@
+
+
+cd /etc/ssh
+nano sshd_config
+change the port number
+semanage port -a -t -ssh_port_t -p tcp 3232
+systemctl restart sshd 
+systemctl status sshd
+firewall-cmd --list -all
+firewall-cmd --add-port=3232/tcp --permanent
+firewall-cmd --reload 
+firewall-cmd --list-all
